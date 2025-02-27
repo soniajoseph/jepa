@@ -10,12 +10,12 @@ import math
 import torch
 import torch.nn as nn
 
-from src.models.utils.modules import (
+from jepa.models.utils.modules import (
     Block,
     CrossAttention,
     CrossAttentionBlock
 )
-from src.utils.tensors import trunc_normal_
+from jepa.utils.tensors import trunc_normal_
 
 
 class AttentivePooler(nn.Module):
@@ -65,6 +65,8 @@ class AttentivePooler(nn.Module):
         trunc_normal_(self.query_tokens, std=self.init_std)
         self.apply(self._init_weights)
         self._rescale_blocks()
+
+        print("model state dict at initialization")
 
     def _rescale_blocks(self):
         def rescale(param, layer_id):

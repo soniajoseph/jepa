@@ -30,23 +30,25 @@ from torch.nn.parallel import DistributedDataParallel
 
 from timm.data import create_transform as timm_make_transforms
 
-import src.models.vision_transformer as vit
-from src.models.attentive_pooler import AttentiveClassifier
-from src.datasets.data_manager import (
+import jepa.models.vision_transformer as vit
+from jepa.models.attentive_pooler import AttentiveClassifier
+from jepa.datasets.data_manager import (
     init_data,
 )
-from src.utils.distributed import (
+from jepa.utils.distributed import (
     init_distributed,
     AllReduce
 )
-from src.utils.schedulers import (
+from jepa.utils.schedulers import (
     WarmupCosineSchedule,
     CosineWDSchedule,
 )
-from src.utils.logging import (
+from jepa.utils.logging import (
     AverageMeter,
     CSVLogger
 )
+
+import torch.nn.functional as F
 
 logging.basicConfig()
 logger = logging.getLogger()
@@ -60,7 +62,7 @@ torch.backends.cudnn.benchmark = True
 pp = pprint.PrettyPrinter(indent=4)
 
 
-def main(args_eval, resume_preempt=False):
+def main(args_eval, resume_preempt=True):
 
     # ----------------------------------------------------------------------- #
     #  PASSED IN PARAMS FROM CONFIG FILE
@@ -131,6 +133,11 @@ def main(args_eval, resume_preempt=False):
     log_file = os.path.join(folder, f'{tag}_r{rank}.csv')
     latest_path = os.path.join(folder, f'{tag}-latest.pth.tar')
 
+    print("overriding latest path with hardcoded paths...")
+
+    pretrained_path = "/network/scratch/s/sonia.joseph/jepa_models/github_models/vit-l-16/vitl16.pth.tar"
+    classifier_path = "/network/scratch/s/sonia.joseph/jepa_models/github_models/vit-l-16/probes/in1k-probe.pth.tar" 
+
     # -- make csv_logger
     if rank == 0:
         csv_logger = CSVLogger(log_file,
@@ -166,6 +173,7 @@ def main(args_eval, resume_preempt=False):
         num_classes=num_classes
     ).to(device)
 
+
     train_loader = make_dataloader(
         dataset_name=dataset_name,
         root_path=root_path,
@@ -200,15 +208,19 @@ def main(args_eval, resume_preempt=False):
         use_bfloat16=use_bfloat16)
     classifier = DistributedDataParallel(classifier, static_graph=True)
 
+
+
     # -- load training checkpoint
     start_epoch = 0
     if resume_checkpoint:
         classifier, optimizer, scaler, start_epoch = load_checkpoint(
             device=device,
-            r_path=latest_path,
+            r_path=classifier_path,
             classifier=classifier,
             opt=optimizer,
             scaler=scaler)
+        print('loaded checkpoint')
+
         for _ in range(start_epoch*ipe):
             scheduler.step()
             wd_scheduler.step()
@@ -226,20 +238,32 @@ def main(args_eval, resume_preempt=False):
         if rank == 0:
             torch.save(save_dict, latest_path)
 
+
+    encoder = encoder.to(dtype=torch.bfloat16)
+    classifier = classifier.to(dtype=torch.bfloat16)
+
+    print(encoder)
+    print(classifier)
+
+    
+
     # TRAIN LOOP
     for epoch in range(start_epoch, num_epochs):
         logger.info('Epoch %d' % (epoch + 1))
-        train_acc = run_one_epoch(
-            device=device,
-            training=True,
-            encoder=encoder,
-            classifier=classifier,
-            scaler=scaler,
-            optimizer=optimizer,
-            scheduler=scheduler,
-            wd_scheduler=wd_scheduler,
-            data_loader=train_loader,
-            use_bfloat16=use_bfloat16)
+        # train_acc = run_one_epoch(
+        #     device=device,
+        #     training=True,
+        #     encoder=encoder,
+        #     classifier=classifier,
+        #     scaler=scaler,
+        #     optimizer=optimizer,
+        #     scheduler=scheduler,
+        #     wd_scheduler=wd_scheduler,
+        #     data_loader=train_loader,
+        #     use_bfloat16=use_bfloat16)
+
+        train_acc = 0
+
 
         val_acc = run_one_epoch(
             device=device,
@@ -275,6 +299,9 @@ def run_one_epoch(
     classifier.train(mode=training)
     criterion = torch.nn.CrossEntropyLoss()
     top1_meter = AverageMeter()
+
+  
+
     for itr, data in enumerate(data_loader):
 
         if training:
@@ -284,15 +311,26 @@ def run_one_epoch(
         with torch.cuda.amp.autocast(dtype=torch.float16, enabled=use_bfloat16):
 
             imgs, labels = data[0].to(device), data[1].to(device)
+            imgs = imgs.to(dtype=torch.bfloat16)
+
+
             with torch.no_grad():
                 outputs = encoder(imgs)
+
                 if not training:
                     outputs = classifier(outputs)
-            if training:
-                outputs = classifier(outputs)
 
+            if training:
+
+                outputs = classifier(outputs)
+                
+
+    
         loss = criterion(outputs, labels)
-        top1_acc = 100. * outputs.max(dim=1).indices.eq(labels).sum() / len(imgs)
+        
+        correct = outputs.argmax(dim=1).eq(labels).sum().item()
+        top1_acc = 100.0 * correct / labels.size(0)  # Use batch size instead of len(imgs)
+        top1_acc = torch.tensor(top1_acc).cuda()  # Convert float to tensor
         top1_acc = float(AllReduce.apply(top1_acc))
         top1_meter.update(top1_acc)
 
@@ -310,6 +348,7 @@ def run_one_epoch(
             optimizer.zero_grad()
 
         if itr % 20 == 0:
+            print("Training? ", training)
             logger.info('[%5d] %.3f%% (loss: %.3f) [mem: %.2e]'
                         % (itr, top1_meter.avg, loss,
                            torch.cuda.max_memory_allocated() / 1024.**2))
@@ -324,26 +363,29 @@ def load_checkpoint(
     opt,
     scaler
 ):
-    try:
-        checkpoint = torch.load(r_path, map_location=torch.device('cpu'))
-        epoch = checkpoint['epoch']
 
-        # -- loading encoder
-        pretrained_dict = checkpoint['classifier']
-        msg = classifier.load_state_dict(pretrained_dict)
-        logger.info(f'loaded pretrained classifier from epoch {epoch} with msg: {msg}')
+    
+    checkpoint = torch.load(r_path, map_location=torch.device('cuda'))
+    epoch = checkpoint['epoch']
 
-        # -- loading optimizer
-        opt.load_state_dict(checkpoint['opt'])
-        if scaler is not None:
-            scaler.load_state_dict(checkpoint['scaler'])
-        logger.info(f'loaded optimizers from epoch {epoch}')
-        logger.info(f'read-path: {r_path}')
-        del checkpoint
+    print("Loading checkpoint", checkpoint.keys())
 
-    except Exception as e:
-        logger.info(f'Encountered exception when loading checkpoint {e}')
-        epoch = 0
+    # -- loading encoder
+    pretrained_dict = checkpoint['classifier']
+    msg = classifier.load_state_dict(pretrained_dict)
+    logger.info(f'loaded pretrained classifier from epoch {epoch} with msg: {msg}')
+
+    # -- loading optimizer
+    opt.load_state_dict(checkpoint['opt'])
+    if scaler is not None:
+        scaler.load_state_dict(checkpoint['scaler'])
+    logger.info(f'loaded optimizers from epoch {epoch}')
+    logger.info(f'read-path: {r_path}')
+    del checkpoint
+
+    # except Exception as e:
+    #     logger.info(f'Encountered exception when loading checkpoint {e}')
+    #     epoch = 0
 
     return classifier, opt, scaler, epoch
 
@@ -368,7 +410,7 @@ def load_pretrained(
         elif pretrained_dict[k].shape != v.shape:
             logger.info(f'key "{k}" is of different shape in model and loaded state dict')
             pretrained_dict[k] = v
-    msg = encoder.load_state_dict(pretrained_dict, strict=False)
+    msg = encoder.load_state_dict(pretrained_dict, strict=True)
     print(encoder)
     logger.info(f'loaded pretrained model with msg: {msg}')
     logger.info(f'loaded pretrained encoder from epoch: {checkpoint["epoch"]}\n path: {pretrained}')

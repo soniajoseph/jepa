@@ -1,0 +1,828 @@
+INFO:root:called-params /home/mila/s/sonia.joseph/jepa/configs/evals/vitl16_in1k.yaml
+INFO:root:loaded params...
+{   'data': {   'dataset_name': 'ImageNet',
+                'image_folder': 'imagenet_full_size/061417/',
+                'num_classes': 1000,
+                'resolution': 224,
+                'root_path': '//network/scratch/s/sonia.joseph/datasets/kaggle_datasets/ILSVRC/Data/CLS-LOC/'},
+    'eval_name': 'image_classification_frozen',
+    'nodes': 8,
+    'optimization': {   'batch_size': 16,
+                        'final_lr': 0.0,
+                        'lr': 0.001,
+                        'num_epochs': 21,
+                        'start_lr': 0.001,
+                        'use_bfloat16': True,
+                        'warmup': 0.0,
+                        'weight_decay': 0.001},
+    'pretrain': {   'checkpoint': 'vitl16.pth.tar',
+                    'checkpoint_key': 'target_encoder',
+                    'clip_duration': None,
+                    'folder': '/network/scratch/s/sonia.joseph/jepa_models/github_models/vit-l-16',
+                    'frames_per_clip': 16,
+                    'model_name': 'vit_large',
+                    'patch_size': 16,
+                    'tight_silu': False,
+                    'tubelet_size': 2,
+                    'uniform_power': True,
+                    'use_sdpa': True,
+                    'use_silu': False,
+                    'write_tag': 'jepa'},
+    'resume_checkpoint': True,
+    'tag': 'in1k-16f',
+    'tasks_per_node': 8}
+INFO:root:Running... (rank: 0/4)
+INFO:root:Running evaluation: image_classification_frozen
+{   'data': {   'dataset_name': 'ImageNet',
+                'image_folder': 'imagenet_full_size/061417/',
+                'num_classes': 1000,
+                'resolution': 224,
+                'root_path': '//network/scratch/s/sonia.joseph/datasets/kaggle_datasets/ILSVRC/Data/CLS-LOC/'},
+    'eval_name': 'image_classification_frozen',
+    'nodes': 8,
+    'optimization': {   'batch_size': 16,
+                        'final_lr': 0.0,
+                        'lr': 0.001,
+                        'num_epochs': 21,
+                        'start_lr': 0.001,
+                        'use_bfloat16': True,
+                        'warmup': 0.0,
+                        'weight_decay': 0.001},
+    'pretrain': {   'checkpoint': 'vitl16.pth.tar',
+                    'checkpoint_key': 'target_encoder',
+                    'clip_duration': None,
+                    'folder': '/network/scratch/s/sonia.joseph/jepa_models/github_models/vit-l-16',
+                    'frames_per_clip': 16,
+                    'model_name': 'vit_large',
+                    'patch_size': 16,
+                    'tight_silu': False,
+                    'tubelet_size': 2,
+                    'uniform_power': True,
+                    'use_sdpa': True,
+                    'use_silu': False,
+                    'write_tag': 'jepa'},
+    'resume_checkpoint': True,
+    'tag': 'in1k-16f',
+    'tasks_per_node': 8}
+INFO:root:Initialized (rank/world-size) 3/4
+{   'data': {   'dataset_name': 'ImageNet',
+                'image_folder': 'imagenet_full_size/061417/',
+                'num_classes': 1000,
+                'resolution': 224,
+                'root_path': '//network/scratch/s/sonia.joseph/datasets/kaggle_datasets/ILSVRC/Data/CLS-LOC/'},
+    'eval_name': 'image_classification_frozen',
+    'nodes': 8,
+    'optimization': {   'batch_size': 16,
+                        'final_lr': 0.0,
+                        'lr': 0.001,
+                        'num_epochs': 21,
+                        'start_lr': 0.001,
+                        'use_bfloat16': True,
+                        'warmup': 0.0,
+                        'weight_decay': 0.001},
+    'pretrain': {   'checkpoint': 'vitl16.pth.tar',
+                    'checkpoint_key': 'target_encoder',
+                    'clip_duration': None,
+                    'folder': '/network/scratch/s/sonia.joseph/jepa_models/github_models/vit-l-16',
+                    'frames_per_clip': 16,
+                    'model_name': 'vit_large',
+                    'patch_size': 16,
+                    'tight_silu': False,
+                    'tubelet_size': 2,
+                    'uniform_power': True,
+                    'use_sdpa': True,
+                    'use_silu': False,
+                    'write_tag': 'jepa'},
+    'resume_checkpoint': True,
+    'tag': 'in1k-16f',
+    'tasks_per_node': 8}
+INFO:root:Initialized (rank/world-size) 2/4
+INFO:root:Initialized (rank/world-size) 0/4
+{   'data': {   'dataset_name': 'ImageNet',
+                'image_folder': 'imagenet_full_size/061417/',
+                'num_classes': 1000,
+                'resolution': 224,
+                'root_path': '//network/scratch/s/sonia.joseph/datasets/kaggle_datasets/ILSVRC/Data/CLS-LOC/'},
+    'eval_name': 'image_classification_frozen',
+    'nodes': 8,
+    'optimization': {   'batch_size': 16,
+                        'final_lr': 0.0,
+                        'lr': 0.001,
+                        'num_epochs': 21,
+                        'start_lr': 0.001,
+                        'use_bfloat16': True,
+                        'warmup': 0.0,
+                        'weight_decay': 0.001},
+    'pretrain': {   'checkpoint': 'vitl16.pth.tar',
+                    'checkpoint_key': 'target_encoder',
+                    'clip_duration': None,
+                    'folder': '/network/scratch/s/sonia.joseph/jepa_models/github_models/vit-l-16',
+                    'frames_per_clip': 16,
+                    'model_name': 'vit_large',
+                    'patch_size': 16,
+                    'tight_silu': False,
+                    'tubelet_size': 2,
+                    'uniform_power': True,
+                    'use_sdpa': True,
+                    'use_silu': False,
+                    'write_tag': 'jepa'},
+    'resume_checkpoint': True,
+    'tag': 'in1k-16f',
+    'tasks_per_node': 8}
+INFO:root:Initialized (rank/world-size) 1/4
+overriding latest path with hardcoded paths...
+INFO:root:Loading pretrained model from /network/scratch/s/sonia.joseph/jepa_models/github_models/vit-l-16/vitl16.pth.tar
+overriding latest path with hardcoded paths...
+INFO:root:Loading pretrained model from /network/scratch/s/sonia.joseph/jepa_models/github_models/vit-l-16/vitl16.pth.tar
+overriding latest path with hardcoded paths...
+INFO:root:Loading pretrained model from /network/scratch/s/sonia.joseph/jepa_models/github_models/vit-l-16/vitl16.pth.tar
+overriding latest path with hardcoded paths...
+INFO:root:Loading pretrained model from /network/scratch/s/sonia.joseph/jepa_models/github_models/vit-l-16/vitl16.pth.tar
+VisionTransformer(
+  (patch_embed): PatchEmbed3D(
+    (proj): Conv3d(3, 1024, kernel_size=(2, 16, 16), stride=(2, 16, 16))
+  )
+  (blocks): ModuleList(
+    (0-23): 24 x Block(
+      (norm1): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      (attn): Attention(
+        (qkv): Linear(in_features=1024, out_features=3072, bias=True)
+        (attn_drop): Dropout(p=0.0, inplace=False)
+        (proj): Linear(in_features=1024, out_features=1024, bias=True)
+        (proj_drop): Dropout(p=0.0, inplace=False)
+      )
+      (norm2): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      (mlp): MLP(
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (act): GELU(approximate='none')
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (drop): Dropout(p=0.0, inplace=False)
+      )
+    )
+  )
+  (norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+)
+INFO:root:loaded pretrained model with msg: <All keys matched successfully>
+INFO:root:loaded pretrained encoder from epoch: 300
+ path: /network/scratch/s/sonia.joseph/jepa_models/github_models/vit-l-16/vitl16.pth.tar
+VisionTransformer(
+  (patch_embed): PatchEmbed3D(
+    (proj): Conv3d(3, 1024, kernel_size=(2, 16, 16), stride=(2, 16, 16))
+  )
+  (blocks): ModuleList(
+    (0-23): 24 x Block(
+      (norm1): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      (attn): Attention(
+        (qkv): Linear(in_features=1024, out_features=3072, bias=True)
+        (attn_drop): Dropout(p=0.0, inplace=False)
+        (proj): Linear(in_features=1024, out_features=1024, bias=True)
+        (proj_drop): Dropout(p=0.0, inplace=False)
+      )
+      (norm2): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      (mlp): MLP(
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (act): GELU(approximate='none')
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (drop): Dropout(p=0.0, inplace=False)
+      )
+    )
+  )
+  (norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+)
+INFO:root:loaded pretrained model with msg: <All keys matched successfully>
+INFO:root:loaded pretrained encoder from epoch: 300
+ path: /network/scratch/s/sonia.joseph/jepa_models/github_models/vit-l-16/vitl16.pth.tar
+VisionTransformer(
+  (patch_embed): PatchEmbed3D(
+    (proj): Conv3d(3, 1024, kernel_size=(2, 16, 16), stride=(2, 16, 16))
+  )
+  (blocks): ModuleList(
+    (0-23): 24 x Block(
+      (norm1): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      (attn): Attention(
+        (qkv): Linear(in_features=1024, out_features=3072, bias=True)
+        (attn_drop): Dropout(p=0.0, inplace=False)
+        (proj): Linear(in_features=1024, out_features=1024, bias=True)
+        (proj_drop): Dropout(p=0.0, inplace=False)
+      )
+      (norm2): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      (mlp): MLP(
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (act): GELU(approximate='none')
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (drop): Dropout(p=0.0, inplace=False)
+      )
+    )
+  )
+  (norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+)
+INFO:root:loaded pretrained model with msg: <All keys matched successfully>
+INFO:root:loaded pretrained encoder from epoch: 300
+ path: /network/scratch/s/sonia.joseph/jepa_models/github_models/vit-l-16/vitl16.pth.tar
+VisionTransformer(
+  (patch_embed): PatchEmbed3D(
+    (proj): Conv3d(3, 1024, kernel_size=(2, 16, 16), stride=(2, 16, 16))
+  )
+  (blocks): ModuleList(
+    (0-23): 24 x Block(
+      (norm1): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      (attn): Attention(
+        (qkv): Linear(in_features=1024, out_features=3072, bias=True)
+        (attn_drop): Dropout(p=0.0, inplace=False)
+        (proj): Linear(in_features=1024, out_features=1024, bias=True)
+        (proj_drop): Dropout(p=0.0, inplace=False)
+      )
+      (norm2): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      (mlp): MLP(
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (act): GELU(approximate='none')
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (drop): Dropout(p=0.0, inplace=False)
+      )
+    )
+  )
+  (norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+)
+INFO:root:loaded pretrained model with msg: <All keys matched successfully>
+INFO:root:loaded pretrained encoder from epoch: 300
+ path: /network/scratch/s/sonia.joseph/jepa_models/github_models/vit-l-16/vitl16.pth.tar
+model state dict at initialization
+INFO:root:implementing auto-agument strategy
+INFO:root:data-path /network/scratch/s/sonia.joseph/datasets/kaggle_datasets/ILSVRC/Data/CLS-LOC/train/
+model state dict at initialization
+INFO:root:implementing auto-agument strategy
+INFO:root:data-path /network/scratch/s/sonia.joseph/datasets/kaggle_datasets/ILSVRC/Data/CLS-LOC/train/
+model state dict at initialization
+INFO:root:implementing auto-agument strategy
+INFO:root:data-path /network/scratch/s/sonia.joseph/datasets/kaggle_datasets/ILSVRC/Data/CLS-LOC/train/
+model state dict at initialization
+INFO:root:implementing auto-agument strategy
+INFO:root:data-path /network/scratch/s/sonia.joseph/datasets/kaggle_datasets/ILSVRC/Data/CLS-LOC/train/
+INFO:root:Initialized ImageFolder
+INFO:root:ImageFolder dataset created
+INFO:root:ImageFolder unsupervised data loader created
+INFO:root:data-path /network/scratch/s/sonia.joseph/datasets/kaggle_datasets/ILSVRC/Data/CLS-LOC/val/
+INFO:root:Initialized ImageFolder
+INFO:root:ImageFolder dataset created
+INFO:root:ImageFolder unsupervised data loader created
+INFO:root:Initialized ImageFolder
+INFO:root:ImageFolder dataset created
+INFO:root:data-path /network/scratch/s/sonia.joseph/datasets/kaggle_datasets/ILSVRC/Data/CLS-LOC/val/
+INFO:root:Initialized ImageFolder
+INFO:root:ImageFolder dataset created
+INFO:root:ImageFolder unsupervised data loader created
+INFO:root:ImageFolder unsupervised data loader created
+INFO:root:data-path /network/scratch/s/sonia.joseph/datasets/kaggle_datasets/ILSVRC/Data/CLS-LOC/val/
+INFO:root:data-path /network/scratch/s/sonia.joseph/datasets/kaggle_datasets/ILSVRC/Data/CLS-LOC/val/
+INFO:root:Initialized ImageFolder
+INFO:root:Initialized ImageFolder
+INFO:root:Initialized ImageFolder
+INFO:root:Initialized ImageFolder
+INFO:root:ImageFolder dataset created
+INFO:root:ImageFolder dataset created
+INFO:root:ImageFolder dataset created
+INFO:root:ImageFolder dataset created
+INFO:root:ImageFolder unsupervised data loader created
+INFO:root:ImageFolder unsupervised data loader created
+INFO:root:ImageFolder unsupervised data loader created
+INFO:root:ImageFolder unsupervised data loader created
+INFO:root:Dataloader created... iterations per epoch: 20019
+INFO:root:Dataloader created... iterations per epoch: 20019
+INFO:root:Dataloader created... iterations per epoch: 20019
+INFO:root:Dataloader created... iterations per epoch: 20019
+INFO:root:Using AdamW
+INFO:root:Using AdamW
+INFO:root:Using AdamW
+INFO:root:Using AdamW
+Loading checkpoint dict_keys(['classifier', 'opt', 'scaler', 'epoch', 'batch_size', 'world_size', 'lr'])
+INFO:root:loaded pretrained classifier from epoch 20 with msg: <All keys matched successfully>
+Loading checkpoint dict_keys(['classifier', 'opt', 'scaler', 'epoch', 'batch_size', 'world_size', 'lr'])
+INFO:root:loaded pretrained classifier from epoch 20 with msg: <All keys matched successfully>
+INFO:root:loaded optimizers from epoch 20
+INFO:root:read-path: /network/scratch/s/sonia.joseph/jepa_models/github_models/vit-l-16/probes/in1k-probe.pth.tar
+INFO:root:loaded optimizers from epoch 20
+INFO:root:read-path: /network/scratch/s/sonia.joseph/jepa_models/github_models/vit-l-16/probes/in1k-probe.pth.tar
+Loading checkpoint dict_keys(['classifier', 'opt', 'scaler', 'epoch', 'batch_size', 'world_size', 'lr'])
+INFO:root:loaded pretrained classifier from epoch 20 with msg: <All keys matched successfully>
+INFO:root:loaded optimizers from epoch 20
+INFO:root:read-path: /network/scratch/s/sonia.joseph/jepa_models/github_models/vit-l-16/probes/in1k-probe.pth.tar
+Loading checkpoint dict_keys(['classifier', 'opt', 'scaler', 'epoch', 'batch_size', 'world_size', 'lr'])
+INFO:root:loaded pretrained classifier from epoch 20 with msg: <All keys matched successfully>
+INFO:root:loaded optimizers from epoch 20
+INFO:root:read-path: /network/scratch/s/sonia.joseph/jepa_models/github_models/vit-l-16/probes/in1k-probe.pth.tar
+loaded checkpoint
+VisionTransformer(
+  (patch_embed): PatchEmbed3D(
+    (proj): Conv3d(3, 1024, kernel_size=(2, 16, 16), stride=(2, 16, 16))
+  )
+  (blocks): ModuleList(
+    (0-23): 24 x Block(
+      (norm1): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      (attn): Attention(
+        (qkv): Linear(in_features=1024, out_features=3072, bias=True)
+        (attn_drop): Dropout(p=0.0, inplace=False)
+        (proj): Linear(in_features=1024, out_features=1024, bias=True)
+        (proj_drop): Dropout(p=0.0, inplace=False)
+      )
+      (norm2): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      (mlp): MLP(
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (act): GELU(approximate='none')
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (drop): Dropout(p=0.0, inplace=False)
+      )
+    )
+  )
+  (norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+)
+DistributedDataParallel(
+  (module): AttentiveClassifier(
+    (pooler): AttentivePooler(
+      (cross_attention_block): CrossAttentionBlock(
+        (norm1): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (xattn): CrossAttention(
+          (q): Linear(in_features=1024, out_features=1024, bias=True)
+          (kv): Linear(in_features=1024, out_features=2048, bias=True)
+          (proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (norm2): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (mlp): MLP(
+          (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+          (act): GELU(approximate='none')
+          (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+          (drop): Dropout(p=0.0, inplace=False)
+        )
+      )
+    )
+    (linear): Linear(in_features=1024, out_features=1000, bias=True)
+  )
+)
+INFO:root:Epoch 21
+loaded checkpoint
+VisionTransformer(
+  (patch_embed): PatchEmbed3D(
+    (proj): Conv3d(3, 1024, kernel_size=(2, 16, 16), stride=(2, 16, 16))
+  )
+  (blocks): ModuleList(
+    (0-23): 24 x Block(
+      (norm1): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      (attn): Attention(
+        (qkv): Linear(in_features=1024, out_features=3072, bias=True)
+        (attn_drop): Dropout(p=0.0, inplace=False)
+        (proj): Linear(in_features=1024, out_features=1024, bias=True)
+        (proj_drop): Dropout(p=0.0, inplace=False)
+      )
+      (norm2): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      (mlp): MLP(
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (act): GELU(approximate='none')
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (drop): Dropout(p=0.0, inplace=False)
+      )
+    )
+  )
+  (norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+)
+DistributedDataParallel(
+  (module): AttentiveClassifier(
+    (pooler): AttentivePooler(
+      (cross_attention_block): CrossAttentionBlock(
+        (norm1): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (xattn): CrossAttention(
+          (q): Linear(in_features=1024, out_features=1024, bias=True)
+          (kv): Linear(in_features=1024, out_features=2048, bias=True)
+          (proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (norm2): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (mlp): MLP(
+          (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+          (act): GELU(approximate='none')
+          (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+          (drop): Dropout(p=0.0, inplace=False)
+        )
+      )
+    )
+    (linear): Linear(in_features=1024, out_features=1000, bias=True)
+  )
+)
+INFO:root:Epoch 21
+loaded checkpoint
+VisionTransformer(
+  (patch_embed): PatchEmbed3D(
+    (proj): Conv3d(3, 1024, kernel_size=(2, 16, 16), stride=(2, 16, 16))
+  )
+  (blocks): ModuleList(
+    (0-23): 24 x Block(
+      (norm1): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      (attn): Attention(
+        (qkv): Linear(in_features=1024, out_features=3072, bias=True)
+        (attn_drop): Dropout(p=0.0, inplace=False)
+        (proj): Linear(in_features=1024, out_features=1024, bias=True)
+        (proj_drop): Dropout(p=0.0, inplace=False)
+      )
+      (norm2): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      (mlp): MLP(
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (act): GELU(approximate='none')
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (drop): Dropout(p=0.0, inplace=False)
+      )
+    )
+  )
+  (norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+)
+DistributedDataParallel(
+  (module): AttentiveClassifier(
+    (pooler): AttentivePooler(
+      (cross_attention_block): CrossAttentionBlock(
+        (norm1): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (xattn): CrossAttention(
+          (q): Linear(in_features=1024, out_features=1024, bias=True)
+          (kv): Linear(in_features=1024, out_features=2048, bias=True)
+          (proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (norm2): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (mlp): MLP(
+          (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+          (act): GELU(approximate='none')
+          (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+          (drop): Dropout(p=0.0, inplace=False)
+        )
+      )
+    )
+    (linear): Linear(in_features=1024, out_features=1000, bias=True)
+  )
+)
+INFO:root:Epoch 21
+loaded checkpoint
+VisionTransformer(
+  (patch_embed): PatchEmbed3D(
+    (proj): Conv3d(3, 1024, kernel_size=(2, 16, 16), stride=(2, 16, 16))
+  )
+  (blocks): ModuleList(
+    (0-23): 24 x Block(
+      (norm1): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      (attn): Attention(
+        (qkv): Linear(in_features=1024, out_features=3072, bias=True)
+        (attn_drop): Dropout(p=0.0, inplace=False)
+        (proj): Linear(in_features=1024, out_features=1024, bias=True)
+        (proj_drop): Dropout(p=0.0, inplace=False)
+      )
+      (norm2): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      (mlp): MLP(
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (act): GELU(approximate='none')
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (drop): Dropout(p=0.0, inplace=False)
+      )
+    )
+  )
+  (norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+)
+DistributedDataParallel(
+  (module): AttentiveClassifier(
+    (pooler): AttentivePooler(
+      (cross_attention_block): CrossAttentionBlock(
+        (norm1): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (xattn): CrossAttention(
+          (q): Linear(in_features=1024, out_features=1024, bias=True)
+          (kv): Linear(in_features=1024, out_features=2048, bias=True)
+          (proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (norm2): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (mlp): MLP(
+          (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+          (act): GELU(approximate='none')
+          (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+          (drop): Dropout(p=0.0, inplace=False)
+        )
+      )
+    )
+    (linear): Linear(in_features=1024, out_features=1000, bias=True)
+  )
+)
+INFO:root:Epoch 21
+Training?  False
+INFO:root:[    0] 0.000% (loss: 21.297) [mem: 1.48e+03]
+Training?  False
+INFO:root:[    0] 0.000% (loss: 16.312) [mem: 1.48e+03]
+Training?  False
+INFO:root:[    0] 0.000% (loss: 17.969) [mem: 1.48e+03]
+Training?  False
+INFO:root:[    0] 0.000% (loss: 22.734) [mem: 1.48e+03]
+Training?  False
+INFO:root:[   20] 0.000% (loss: 19.469) [mem: 1.48e+03]
+Training?  False
+INFO:root:[   20] 0.000% (loss: 21.156) [mem: 1.48e+03]
+Training?  False
+INFO:root:[   20] 0.000% (loss: 20.984) [mem: 1.48e+03]
+Training?  False
+INFO:root:[   20] 0.000% (loss: 17.156) [mem: 1.48e+03]
+Training?  False
+INFO:root:[   40] 0.000% (loss: 21.234) [mem: 1.48e+03]
+Training?  False
+INFO:root:[   40] 0.000% (loss: 19.641) [mem: 1.48e+03]
+Training?  False
+INFO:root:[   40] 0.000% (loss: 16.391) [mem: 1.48e+03]
+Training?  False
+INFO:root:[   40] 0.000% (loss: 21.156) [mem: 1.48e+03]
+Training?  False
+INFO:root:[   60] 0.026% (loss: 21.312) [mem: 1.48e+03]
+Training?  False
+INFO:root:[   60] 0.026% (loss: 20.703) [mem: 1.48e+03]
+Training?  False
+INFO:root:[   60] 0.026% (loss: 20.094) [mem: 1.48e+03]
+Training?  False
+INFO:root:[   60] 0.026% (loss: 24.375) [mem: 1.48e+03]
+Training?  False
+INFO:root:[   80] 0.019% (loss: 16.750) [mem: 1.48e+03]
+Training?  False
+INFO:root:[   80] 0.019% (loss: 24.484) [mem: 1.48e+03]
+Training?  False
+INFO:root:[   80] 0.019% (loss: 20.375) [mem: 1.48e+03]
+Training?  False
+INFO:root:[   80] 0.019% (loss: 22.297) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  100] 0.031% (loss: 23.344) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  100] 0.031% (loss: 22.219) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  100] 0.031% (loss: 22.656) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  100] 0.031% (loss: 23.922) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  120] 0.077% (loss: 21.953) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  120] 0.077% (loss: 19.938) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  120] 0.077% (loss: 20.812) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  120] 0.077% (loss: 22.438) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  140] 0.078% (loss: 21.688) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  140] 0.078% (loss: 18.812) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  140] 0.078% (loss: 23.953) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  140] 0.078% (loss: 17.312) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  160] 0.068% (loss: 21.109) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  160] 0.068% (loss: 23.438) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  160] 0.068% (loss: 22.000) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  160] 0.068% (loss: 17.766) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  180] 0.078% (loss: 20.078) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  180] 0.078% (loss: 20.984) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  180] 0.078% (loss: 20.234) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  180] 0.078% (loss: 21.453) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  200] 0.086% (loss: 17.891) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  200] 0.086% (loss: 17.641) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  200] 0.086% (loss: 22.672) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  200] 0.086% (loss: 25.109) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  220] 0.085% (loss: 23.578) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  220] 0.085% (loss: 20.672) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  220] 0.085% (loss: 17.500) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  220] 0.085% (loss: 24.609) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  240] 0.078% (loss: 20.562) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  240] 0.078% (loss: 21.000) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  240] 0.078% (loss: 22.094) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  240] 0.078% (loss: 23.422) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  260] 0.084% (loss: 20.500) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  260] 0.084% (loss: 19.984) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  260] 0.084% (loss: 20.281) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  260] 0.084% (loss: 18.938) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  280] 0.078% (loss: 22.391) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  280] 0.078% (loss: 18.812) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  280] 0.078% (loss: 22.406) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  280] 0.078% (loss: 20.906) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  300] 0.073% (loss: 22.859) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  300] 0.073% (loss: 20.234) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  300] 0.073% (loss: 16.312) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  300] 0.073% (loss: 22.266) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  320] 0.073% (loss: 22.906) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  320] 0.073% (loss: 23.609) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  320] 0.073% (loss: 20.625) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  320] 0.073% (loss: 19.953) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  340] 0.073% (loss: 19.906) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  340] 0.073% (loss: 20.219) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  340] 0.073% (loss: 20.938) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  340] 0.073% (loss: 19.375) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  360] 0.078% (loss: 22.641) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  360] 0.078% (loss: 20.406) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  360] 0.078% (loss: 22.688) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  360] 0.078% (loss: 21.625) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  380] 0.074% (loss: 21.266) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  380] 0.074% (loss: 22.297) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  380] 0.074% (loss: 18.438) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  380] 0.074% (loss: 21.953) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  400] 0.070% (loss: 20.859) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  400] 0.070% (loss: 20.625) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  400] 0.070% (loss: 23.031) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  400] 0.070% (loss: 18.547) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  420] 0.074% (loss: 19.953) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  420] 0.074% (loss: 19.984) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  420] 0.074% (loss: 20.469) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  420] 0.074% (loss: 22.719) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  440] 0.074% (loss: 17.375) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  440] 0.074% (loss: 21.906) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  440] 0.074% (loss: 21.484) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  440] 0.074% (loss: 20.938) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  460] 0.075% (loss: 18.844) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  460] 0.075% (loss: 20.797) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  460] 0.075% (loss: 21.781) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  460] 0.075% (loss: 21.453) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  480] 0.071% (loss: 21.906) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  480] 0.071% (loss: 23.547) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  480] 0.071% (loss: 20.656) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  480] 0.071% (loss: 18.438) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  500] 0.069% (loss: 22.000) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  500] 0.069% (loss: 18.469) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  500] 0.069% (loss: 20.266) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  500] 0.069% (loss: 20.250) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  520] 0.066% (loss: 21.797) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  520] 0.066% (loss: 22.406) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  520] 0.066% (loss: 21.547) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  520] 0.066% (loss: 21.359) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  540] 0.075% (loss: 19.625) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  540] 0.075% (loss: 19.359) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  540] 0.075% (loss: 18.594) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  540] 0.075% (loss: 19.688) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  560] 0.078% (loss: 20.375) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  560] 0.078% (loss: 24.359) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  560] 0.078% (loss: 20.438) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  560] 0.078% (loss: 22.672) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  580] 0.078% (loss: 18.703) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  580] 0.078% (loss: 21.188) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  580] 0.078% (loss: 23.625) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  580] 0.078% (loss: 19.828) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  600] 0.075% (loss: 22.812) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  600] 0.075% (loss: 19.578) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  600] 0.075% (loss: 23.328) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  600] 0.075% (loss: 20.562) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  620] 0.073% (loss: 19.250) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  620] 0.073% (loss: 21.562) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  620] 0.073% (loss: 21.422) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  620] 0.073% (loss: 17.812) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  640] 0.076% (loss: 20.312) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  640] 0.076% (loss: 19.891) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  640] 0.076% (loss: 21.000) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  640] 0.076% (loss: 27.000) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  660] 0.073% (loss: 21.984) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  660] 0.073% (loss: 23.266) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  660] 0.073% (loss: 21.594) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  660] 0.073% (loss: 22.438) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  680] 0.071% (loss: 21.484) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  680] 0.071% (loss: 23.000) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  680] 0.071% (loss: 22.953) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  680] 0.071% (loss: 18.422) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  700] 0.078% (loss: 20.828) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  700] 0.078% (loss: 22.406) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  700] 0.078% (loss: 20.156) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  700] 0.078% (loss: 19.625) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  720] 0.076% (loss: 20.359) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  720] 0.076% (loss: 18.656) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  720] 0.076% (loss: 25.484) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  720] 0.076% (loss: 18.266) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  740] 0.078% (loss: 22.141) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  740] 0.078% (loss: 22.094) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  740] 0.078% (loss: 23.109) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  740] 0.078% (loss: 23.094) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  760] 0.076% (loss: 21.156) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  760] 0.076% (loss: 23.469) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  760] 0.076% (loss: 20.781) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  760] 0.076% (loss: 20.547) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  780] 0.074% (loss: 18.375) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  780] 0.074% (loss: 23.156) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  780] 0.074% (loss: 18.484) [mem: 1.48e+03]
+Training?  False
+INFO:root:[  780] 0.074% (loss: 22.016) [mem: 1.48e+03]
+INFO:root:[   21] train: 0.000% test: 0.074%
+INFO:root:[   21] train: 0.000% test: 0.074%
+INFO:root:[   21] train: 0.000% test: 0.074%
+INFO:root:[   21] train: 0.000% test: 0.074%

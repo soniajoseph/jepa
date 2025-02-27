@@ -8,8 +8,8 @@
 import torch
 import torchvision.transforms as transforms
 
-import src.datasets.utils.video.transforms as video_transforms
-from src.datasets.utils.video.randerase import RandomErasing
+import jepa.datasets.utils.video.transforms as video_transforms
+from jepa.datasets.utils.video.randerase import RandomErasing
 
 
 def make_transforms(

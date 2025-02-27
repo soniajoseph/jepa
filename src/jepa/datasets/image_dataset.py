@@ -33,6 +33,7 @@ class ImageFolder(torchvision.datasets.ImageFolder):
         """
 
         suffix = 'train/' if train else 'val/'
+        image_folder = '/network/scratch/s/sonia.joseph/datasets/kaggle_datasets/ILSVRC/Data/CLS-LOC'
         data_path = os.path.join(root, image_folder, suffix)
         logger.info(f'data-path {data_path}')
         super(ImageFolder, self).__init__(root=data_path, transform=transform)

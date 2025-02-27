@@ -26,19 +26,19 @@ import torch.multiprocessing as mp
 import torch.nn.functional as F
 from torch.nn.parallel import DistributedDataParallel
 
-from src.datasets.data_manager import init_data
-from src.masks.random_tube import MaskCollator as TubeMaskCollator
-from src.masks.multiblock3d import MaskCollator as MB3DMaskCollator
-from src.masks.utils import apply_masks
-from src.utils.distributed import init_distributed, AllReduce
-from src.utils.logging import (
+from jepa.datasets.data_manager import init_data
+from jepa.masks.random_tube import MaskCollator as TubeMaskCollator
+from jepa.masks.multiblock3d import MaskCollator as MB3DMaskCollator
+from jepa.masks.utils import apply_masks
+from jepa.utils.distributed import init_distributed, AllReduce
+from jepa.utils.logging import (
     CSVLogger,
     gpu_timer,
     get_logger,
     grad_logger,
     adamw_logger,
     AverageMeter)
-from src.utils.tensors import repeat_interleave_batch
+from jepa.utils.tensors import repeat_interleave_batch
 
 from app.vjepa.utils import (
     load_checkpoint,

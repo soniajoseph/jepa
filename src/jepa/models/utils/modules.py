@@ -45,7 +45,7 @@ class Attention(nn.Module):
         qk_scale=None,
         attn_drop=0.,
         proj_drop=0.,
-        use_sdpa=True
+        use_sdpa=True,
     ):
         super().__init__()
         self.num_heads = num_heads
@@ -155,7 +155,7 @@ class CrossAttention(nn.Module):
 
         q = q.transpose(1, 2).reshape(B, n, C)
         q = self.proj(q)
-    
+
         return q
 
 

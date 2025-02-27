@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+src/jepa/__init__.py
+src/jepa.egg-info/PKG-INFO
+src/jepa.egg-info/SOURCES.txt
+src/jepa.egg-info/dependency_links.txt
+src/jepa.egg-info/requires.txt
+src/jepa.egg-info/top_level.txt

@@ -13,13 +13,13 @@ import yaml
 
 import torch
 
-import src.models.vision_transformer as video_vit
-import src.models.predictor as vit_pred
-from src.models.utils.multimask import MultiMaskWrapper, PredictorMultiMaskWrapper
-from src.utils.schedulers import (
+import jepa.models.vision_transformer as video_vit
+import jepa.models.predictor as vit_pred
+from jepa.models.utils.multimask import MultiMaskWrapper, PredictorMultiMaskWrapper
+from jepa.utils.schedulers import (
     WarmupCosineSchedule,
     CosineWDSchedule)
-from src.utils.tensors import trunc_normal_
+from jepa.utils.tensors import trunc_normal_
 
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 logger = logging.getLogger()
